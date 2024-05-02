@@ -51,8 +51,8 @@ export default function HeroFlats({
         >
           {image && (
             <Image
-              width={640}
-              class="w-full lg:w-1/2 object-fit"
+              width={1920}
+              class="absolute top-0 left-0 w-full object-cover"
               sizes="(max-width: 640px) 100vw, 30vw"
               src={image}
               alt={image}

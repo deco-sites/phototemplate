@@ -285,12 +285,18 @@
         "__resolveType": "Header"
       },
       {
-        "__resolveType": "site/sections/Hero.tsx",
-        "title": "<p>I capture the best moments for you.</p>",
-        "cta": [],
-        "description": "This text is fully editable and ready for your personal touch. Just click here, head over to the section window, or dive straight into the code to make changes as you see fit. Whether it's about the content, formatting, font, or anything in between, editing is just a click away.",
-        "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/8244/714440d5-185b-4f11-a8b3-bf7583a0ef0d",
-        "placement": "left"
+        "__resolveType": "site/sections/HeroCarousel.tsx",
+        "images": [
+          {
+            "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/8244/691ebd12-c462-42cc-bc13-7c57425eb160",
+            "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/8244/fa002169-3bc3-4cd6-aeac-992a6c838752",
+            "alt": "Photo 1"
+          }
+        ],
+        "preload": true,
+        "dots": true,
+        "arrows": false,
+        "interval": 4
       },
       {
         "__resolveType": "site/sections/Logos.tsx"
