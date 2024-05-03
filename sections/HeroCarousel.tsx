@@ -215,6 +215,12 @@ function HeroCarousel(props: Props) {
       id={id}
       class="relative grid grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_64px] sm:min-h-min min-h-[660px] bg-black"
     >
+      <div
+        style={{
+          background: "linear-gradient(0deg, black, transparent);",
+        }}
+        class="absolute w-full left-0 bottom-0 h-11 xl:h-[100px] z-20"
+      ></div>
       <Slider
         rootId={id}
         interval={interval && interval * 1e3}
@@ -268,7 +274,7 @@ function HeroCarousel(props: Props) {
               height={450}
             />
             <img
-              class="rounded-full opacity-50 hover:opacity-100 transition-opacity"
+              class="rounded-full xl:opacity-50 xl:hover:opacity-100 transition-opacity"
               loading="eager"
               src={props.photographer.image}
               alt="Photographer"
