@@ -385,8 +385,8 @@
       {
         "__resolveType": "site/sections/Testimonials.tsx",
         "title": "Testimonials",
-        "arrows": true,
-        "dots": true
+        "arrows": false,
+        "dots": false
       },
       {
         "__resolveType": "site/sections/Footer.tsx",
