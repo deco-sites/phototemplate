@@ -25,8 +25,7 @@ export interface Nav {
 
 export default function Header({
   logo = {
-    src:
-      "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1527/67120bcd-936a-4ea5-a760-02ed5c4a3d04",
+    src: "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1527/67120bcd-936a-4ea5-a760-02ed5c4a3d04",
     alt: "Logo",
   },
   navigation = {
@@ -43,7 +42,7 @@ export default function Header({
   },
 }: Nav) {
   return (
-    <nav class="drawer drawer-end">
+    <nav class="bg-transparent hover:bg-white transition-all fixed top-0 left-0 w-full drawer drawer-end z-50">
       <input id="mobile-drawer-nav" type="checkbox" class="drawer-toggle" />
 
       {/* main content */}
@@ -92,7 +91,7 @@ export default function Header({
       </div>
 
       {/* sidebar */}
-      <aside class="drawer-side z-50">
+      <aside class="drawer-side z-50 overflow-x-hidden">
         {/* Close when clicking on overlay */}
         <label
           htmlFor="mobile-drawer-nav"

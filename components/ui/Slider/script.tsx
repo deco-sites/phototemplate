@@ -2,12 +2,11 @@ import { scriptAsDataURI } from "deco/utils/dataURI.ts";
 
 export interface Props {
   rootId: string;
-  scroll?: "smooth" | "auto";
   interval?: number;
   infinite?: boolean;
 }
 
-const setup = ({ rootId, scroll, interval, infinite }: Props) => {
+const setup = ({ rootId, interval, infinite }: Props) => {
   const ATTRIBUTES = {
     "data-slider": "data-slider",
     "data-slider-item": "data-slider-item",
@@ -16,36 +15,7 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
     "data-dot": "data-dot",
   };
 
-  // Percentage of the item that has to be inside the container
-  // for it it be considered as inside the container
-  const THRESHOLD = 0.6;
-
-  const intersectionX = (element: DOMRect, container: DOMRect): number => {
-    const delta = container.width / 1_000;
-
-    if (element.right < container.left - delta) {
-      return 0.0;
-    }
-
-    if (element.left > container.right + delta) {
-      return 0.0;
-    }
-
-    if (element.left < container.left - delta) {
-      return element.right - container.left + delta;
-    }
-
-    if (element.right > container.right + delta) {
-      return container.right - element.left + delta;
-    }
-
-    return element.width;
-  };
-
-  // as any are ok in typeguard functions
-  const isHTMLElement = (x: Element): x is HTMLElement =>
-    // deno-lint-ignore no-explicit-any
-    typeof (x as any).offsetLeft === "number";
+  const FADE_DURATION = 500; // Tempo da animação de fade em milissegundos
 
   const root = document.getElementById(rootId);
   const slider = root?.querySelector(`[${ATTRIBUTES["data-slider"]}]`);
@@ -63,67 +33,45 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
     return;
   }
 
-  const getElementsInsideContainer = () => {
-    const indices: number[] = [];
-    const sliderRect = slider.getBoundingClientRect();
+  let currentIndex = 0; // Índice do slide atual
 
-    for (let index = 0; index < items.length; index++) {
-      const item = items.item(index);
-      const rect = item.getBoundingClientRect();
+  const fadeOut = (element: HTMLElement) => {
+    element.style.transition = `opacity ${FADE_DURATION}ms`;
+    element.style.opacity = "0";
+    setTimeout(() => {
+      element.style.display = "none";
+    }, FADE_DURATION);
+  };
 
-      const ratio = intersectionX(
-        rect,
-        sliderRect,
-      ) / rect.width;
-
-      if (ratio > THRESHOLD) {
-        indices.push(index);
-      }
-    }
-
-    return indices;
+  const fadeIn = (element: HTMLElement) => {
+    element.style.display = "block";
+    setTimeout(() => {
+      element.style.transition = `opacity ${FADE_DURATION}ms`;
+      element.style.opacity = "1";
+    }, 10); // Pequeno atraso para garantir que a transição seja aplicada corretamente
   };
 
   const goToItem = (index: number) => {
-    const item = items.item(index);
+    if (index < 0 || index >= items.length) return;
 
-    if (!isHTMLElement(item)) {
-      console.warn(
-        `Element at index ${index} is not an html element. Skipping carousel`,
-      );
+    const currentItem = items[currentIndex] as HTMLElement;
+    const nextItem = items[index] as HTMLElement;
 
-      return;
-    }
-
-    slider.scrollTo({
-      top: 0,
-      behavior: scroll,
-      left: item.offsetLeft - root.offsetLeft,
-    });
+    fadeOut(currentItem);
+    setTimeout(() => {
+      fadeIn(nextItem);
+      currentIndex = index;
+    }, FADE_DURATION);
   };
 
   const onClickPrev = () => {
-    const indices = getElementsInsideContainer();
-    // Wow! items per page is how many elements are being displayed inside the container!!
-    const itemsPerPage = indices.length;
-
-    const isShowingFirst = indices[0] === 0;
-    const pageIndex = Math.floor(indices[indices.length - 1] / itemsPerPage);
-
-    goToItem(
-      isShowingFirst ? items.length - 1 : (pageIndex - 1) * itemsPerPage,
-    );
+    const newIndex = (currentIndex - 1 + items.length) % items.length;
+    goToItem(newIndex);
   };
 
   const onClickNext = () => {
-    const indices = getElementsInsideContainer();
-    // Wow! items per page is how many elements are being displayed inside the container!!
-    const itemsPerPage = indices.length;
-
-    const isShowingLast = indices[indices.length - 1] === items.length - 1;
-    const pageIndex = Math.floor(indices[0] / itemsPerPage);
-
-    goToItem(isShowingLast ? 0 : (pageIndex + 1) * itemsPerPage);
+    const newIndex = (currentIndex + 1) % items.length;
+    goToItem(newIndex);
   };
 
   const observer = new IntersectionObserver(
@@ -155,7 +103,7 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
           }
         }
       }),
-    { threshold: THRESHOLD, root: slider },
+    { threshold: 0.6, root: slider },
   );
 
   items.forEach((item) => observer.observe(item));
@@ -186,14 +134,13 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
 
 function Slider({
   rootId,
-  scroll = "smooth",
   interval,
   infinite = false,
 }: Props) {
   return (
     <script
       defer
-      src={scriptAsDataURI(setup, { rootId, scroll, interval, infinite })}
+      src={scriptAsDataURI(setup, { rootId, interval, infinite })}
     />
   );
 }
