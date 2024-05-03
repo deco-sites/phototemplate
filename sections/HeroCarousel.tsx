@@ -213,13 +213,13 @@ function HeroCarousel(props: Props) {
   return (
     <div
       id={id}
-      class="relative grid grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_64px] sm:min-h-min min-h-[660px] bg-black"
+      class="relative grid grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_64px] min-h-screen bg-black"
     >
       <div
         style={{
           background: "linear-gradient(0deg, black, transparent);",
         }}
-        class="absolute w-full left-0 bottom-0 h-11 xl:h-[100px] z-20"
+        class="absolute w-full left-0 bottom-0 h-[100px] z-20"
       ></div>
       <Slider
         rootId={id}
@@ -257,7 +257,7 @@ function HeroCarousel(props: Props) {
       )}
 
       {props.photographer && (
-        <div class="absolute w-full xl:w-auto px-4 bottom-8 left-1/2 -translate-x-1/2 xl:left-[unset] xl:translate-x-0 xl:top-1/2 xl:-translate-y-1/2 xl:right-32 flex flex-row-reverse xl:flex-col gap-2 items-center justify-center">
+        <div class="absolute w-full xl:w-auto px-4 bottom-20 left-1/2 -translate-x-1/2 xl:left-[unset] xl:translate-x-0 xl:top-1/2 xl:-translate-y-1/2 xl:right-32 flex flex-row-reverse xl:flex-col gap-2 items-center justify-center">
           <Picture preload>
             <Source
               media="(max-width: 1279px)"
