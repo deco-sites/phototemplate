@@ -288,28 +288,32 @@
         "__resolveType": "site/sections/HeroCarousel.tsx",
         "images": [
           {
-            "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/8244/691ebd12-c462-42cc-bc13-7c57425eb160",
-            "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/8244/fa002169-3bc3-4cd6-aeac-992a6c838752",
+            "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/8244/c231546e-2a5a-441d-99b8-27c047b43c60",
+            "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/8244/fa3cd881-b986-411f-9146-b923e244dac1",
+            "alt": "Photo"
+          },
+          {
+            "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/8244/cfaeea0a-3310-4310-bfec-106688ffaa1d",
+            "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/8244/5e9545bd-3a01-4617-bc86-d33199ef9151",
             "alt": "Photo 1"
+          },
+          {
+            "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/8244/dff1c500-7251-4bfa-8742-ac4902341c76",
+            "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/8244/1e857370-ce72-4ece-919e-3163580a6155",
+            "alt": "Photo 2"
           }
         ],
+        "text": {
+          "title": "I capture the best moments for you",
+          "subTitle": "Photographer & Entrepeneur"
+        },
         "preload": true,
         "dots": true,
-        "arrows": false,
-        "interval": 4
-      },
-      {
-        "__resolveType": "site/sections/Logos.tsx"
-      },
-      {
-        "__resolveType": "site/sections/ImageWithParagraph.tsx",
-        "placement": "right"
-      },
-      {
-        "__resolveType": "site/sections/ImageWithParagraph.tsx"
-      },
-      {
-        "__resolveType": "site/sections/BlogPosts.tsx"
+        "photographer": {
+          "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/8244/e0361820-3a39-4426-8b67-9118d05a13f4",
+          "text": "Renan is a passionate photographer based in Rio"
+        },
+        "interval": 8
       },
       {
         "__resolveType": "site/sections/Testimonials.tsx"
