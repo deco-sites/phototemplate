@@ -282,7 +282,32 @@
     "path": "/",
     "sections": [
       {
-        "__resolveType": "Header"
+        "__resolveType": "site/sections/Header.tsx",
+        "navigation": {
+          "links": [
+            {
+              "label": "Home",
+              "url": "/"
+            },
+            {
+              "label": "About",
+              "url": "#about"
+            },
+            {
+              "label": "Portfolio",
+              "url": "#portfolio"
+            },
+            {
+              "label": "Blog",
+              "url": "#blog"
+            }
+          ],
+          "buttons": []
+        },
+        "logo": {
+          "alt": "Logo",
+          "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/8244/f0b98dcb-3473-4890-acba-bf2abeb43c7b"
+        }
       },
       {
         "__resolveType": "site/sections/HeroCarousel.tsx",
