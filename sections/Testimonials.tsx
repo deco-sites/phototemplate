@@ -99,18 +99,11 @@ const DEFAULT_PROPS = {
   ],
 };
 
-function SliderItem(
-  { slide, id }: { slide: Testimonial; id: string },
-) {
-  const {
-    content,
-  } = slide;
+function SliderItem({ slide, id }: { slide: Testimonial; id: string }) {
+  const { content } = slide;
 
   return (
-    <div
-      id={id}
-      class="relative overflow-y-hidden w-full min-h-[292px]"
-    >
+    <div id={id} class="relative overflow-y-hidden w-full min-h-[292px]">
       <div class="flex flex-col justify-center gap-16 p-8 border border-base-content rounded-2xl h-full max-w-[600px]">
         <p class="text-lg">{content?.description}</p>
         <div class="flex items-center gap-5">
@@ -134,26 +127,12 @@ function SliderItem(
 function Dots({ slides, interval = 0 }: Props) {
   return (
     <>
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
-          @property --dot-progress {
-            syntax: '<percentage>';
-            inherits: false;
-            initial-value: 0%;
-          }
-          `,
-        }}
-      />
       <ul class="carousel col-span-full gap-3 z-10">
         {slides?.map((_, index) => (
           <li class="carousel-item">
             <Slider.Dot index={index}>
-              <div class="py-5">
-                <div
-                  class="w-2 h-2 rounded-full group-disabled:animate-progress dot"
-                  style={{ animationDuration: `${interval}s` }}
-                />
+              <div class="py-2">
+                <div class="w-2 h-2 rounded-full bg-white border border-black group-disabled:bg-gray-500 transition-all duration-200" />
               </div>
             </Slider.Dot>
           </li>
@@ -167,23 +146,13 @@ function Buttons() {
   return (
     <div class="flex gap-4">
       <div class="flex items-center justify-center z-10 col-start-1 row-start-2">
-        <Slider.PrevButton class="flex items-center justify-center btn-circle border border-base-content">
-          <Icon
-            class="text-base-content"
-            size={24}
-            id="ArrowRight"
-            strokeWidth={3}
-          />
+        <Slider.PrevButton class="flex items-center justify-center btn-circle border border-black">
+          <Icon class="text-black" size={24} id="ArrowRight" strokeWidth={3} />
         </Slider.PrevButton>
       </div>
       <div class="flex items-center justify-center z-10 col-start-3 row-start-2">
-        <Slider.NextButton class="flex items-center justify-center btn-circle border border-base-content">
-          <Icon
-            class="text-base-content"
-            size={24}
-            id="ArrowLeft"
-            strokeWidth={3}
-          />
+        <Slider.NextButton class="flex items-center justify-center btn-circle border border-black">
+          <Icon class="text-black" size={24} id="ArrowLeft" strokeWidth={3} />
         </Slider.NextButton>
       </div>
     </div>
@@ -195,28 +164,24 @@ function Carousel(props: Props) {
   const { title, slides, interval } = { ...DEFAULT_PROPS, ...props };
 
   return (
-    <div
-      id={id}
-      class="min-h-min flex flex-col lg:container md:max-w-6xl lg:mx-auto mx-4 py-12 lg:py-28"
-    >
-      <h2 class="text-4xl leading-snug lg:w-1/2 pb-12 lg:pb-16">
-        {title}
-      </h2>
+    <>
+      <div
+        id={id}
+        class="min-h-min flex flex-col lg:container md:max-w-6xl lg:mx-auto mx-4"
+      >
+        <h2 class="text-2xl xl:text-4xl font-bold leading-snug lg:w-1/2 pb-12 lg:pb-16">
+          {title}
+        </h2>
+      </div>
       <Slider
-        class="carousel carousel-center w-full col-span-full row-span-full gap-6"
+        class="carousel carousel-end w-full col-span-full row-span-full gap-6"
         rootId={id}
         interval={interval && interval * 1e3}
         infinite
       >
         {slides?.map((slide, index) => (
-          <Slider.Item
-            index={index}
-            class="carousel-item max-w-[600px] w-full"
-          >
-            <SliderItem
-              slide={slide}
-              id={`${id}::${index}`}
-            />
+          <Slider.Item index={index} class="carousel-item max-w-[600px] w-full">
+            <SliderItem slide={slide} id={`${id}::${index}`} />
           </Slider.Item>
         ))}
       </Slider>
@@ -225,7 +190,7 @@ function Carousel(props: Props) {
         {props.dots && <Dots slides={slides} interval={interval} />}{" "}
         {props.arrows && <Buttons />}
       </div>
-    </div>
+    </>
   );
 }
 
