@@ -341,13 +341,16 @@
         "interval": 8
       },
       {
-        "__resolveType": "site/sections/Testimonials.tsx"
-      },
-      {
-        "__resolveType": "site/sections/Faq.tsx"
-      },
-      {
-        "__resolveType": "Footer"
+        "__resolveType": "site/sections/Experience.tsx",
+        "title": "Life is about Creating Experiences",
+        "subTitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas cursus tortor eget ligula molestie, eu finibus libero blandit. Maecenas sodales, est a ultrices tristique,",
+        "bottomImage": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/8244/bfb73198-2773-43ce-b707-0d717c0abe93",
+        "informations": [
+          {
+            "icon": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/8244/60962fa1-c8ea-4b49-920c-bcd2342e20e2",
+            "text": "Lorem ipsum dolor."
+          }
+        ]
       }
     ],
     "__resolveType": "website/pages/Page.tsx"
