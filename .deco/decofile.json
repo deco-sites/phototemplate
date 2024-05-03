@@ -296,10 +296,6 @@
             {
               "label": "Portfolio",
               "url": "#portfolio"
-            },
-            {
-              "label": "Blog",
-              "url": "#blog"
             }
           ],
           "buttons": []
@@ -387,12 +383,21 @@
         ]
       },
       {
-        "__resolveType": "site/sections/BlogPosts.tsx",
-        "title": "Blog",
-        "description": "My latest posts"
+        "__resolveType": "site/sections/Testimonials.tsx",
+        "title": "Testimonials",
+        "arrows": true,
+        "dots": true
       },
       {
-        "__resolveType": "Footer"
+        "__resolveType": "site/sections/Footer.tsx",
+        "links": [],
+        "bottomLinks": [],
+        "social": [],
+        "subscribe": {},
+        "contactUsImage": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/8244/f3a09699-1096-49db-bbdc-53043f244f33",
+        "logo": {
+          "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/8244/d20ddb3f-266c-41ad-9713-17ca9289449e"
+        }
       }
     ],
     "__resolveType": "website/pages/Page.tsx"
