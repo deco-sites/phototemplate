@@ -369,12 +369,30 @@
         ]
       },
       {
-        "__resolveType": "site/sections/Logos.tsx",
-        "logos": [
+        "__resolveType": "site/sections/Portfolio.tsx",
+        "title": "Portfolio",
+        "images": [
           {
             "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/8244/eb48d8a3-19a8-435d-9844-d31bb66902b0"
+          },
+          {
+            "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/8244/5c215404-ef1c-4362-8f44-72797c4e202b"
+          },
+          {
+            "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/8244/4512731e-40e7-4102-ae07-25481a84e512"
+          },
+          {
+            "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/8244/a53e95df-853d-4ac8-8abd-638b942769e5"
           }
         ]
+      },
+      {
+        "__resolveType": "site/sections/BlogPosts.tsx",
+        "title": "Blog",
+        "description": "My latest posts"
+      },
+      {
+        "__resolveType": "Footer"
       }
     ],
     "__resolveType": "website/pages/Page.tsx"
